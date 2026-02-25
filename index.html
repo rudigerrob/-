@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>智慧旅遊規劃 App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>智慧旅遊規劃 App（可直接使用）</h1>
+        <p>輸入地點與時間，系統會幫你排建議路線、交通方案、成本估算與天氣提醒。</p>
+      </header>
+
+      <section class="card">
+        <h2>旅程輸入</h2>
+        <form id="planner-form">
+          <div class="grid">
+            <label>目的地城市
+              <input id="city" required placeholder="例如：Tokyo / Taipei / Paris" />
+            </label>
+            <label>旅遊日期
+              <input id="date" type="date" required />
+            </label>
+            <label>開始時間
+              <input id="startTime" type="time" value="09:00" required />
+            </label>
+            <label>結束時間
+              <input id="endTime" type="time" value="20:00" required />
+            </label>
+            <label>總預算（TWD）
+              <input id="budget" type="number" min="0" value="5000" required />
+            </label>
+            <label>偏好
+              <select id="preference">
+                <option value="balanced">平衡（預設）</option>
+                <option value="fastest">省時間</option>
+                <option value="cheapest">省錢</option>
+                <option value="less_walking">少走路</option>
+                <option value="avoid_rain">避開雨天</option>
+              </select>
+            </label>
+          </div>
+          <button type="submit">產生最佳行程</button>
+        </form>
+      </section>
+
+      <section id="loading" class="hidden">計算中，請稍候…</section>
+
+      <section id="result" class="card hidden">
+        <h2>規劃結果</h2>
+        <div id="summary"></div>
+        <div id="weather"></div>
+        <h3>行程路線（最佳化）</h3>
+        <ol id="itinerary"></ol>
+
+        <h3>替代方案</h3>
+        <ul id="alternatives"></ul>
+      </section>
+    </main>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
