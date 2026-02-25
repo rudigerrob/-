@@ -1,0 +1,45 @@
+{
+  "tripId": "trip_123",
+  "bestPlan": {
+    "score": 0.82,
+    "totalCost": 12800,
+    "totalTravelMinutes": 210,
+    "days": [
+      {
+        "date": "2026-04-03",
+        "weather": {
+          "condition": "Cloudy",
+          "rainProbability": 35,
+          "temperatureC": 18
+        },
+        "stops": [
+          {
+            "name": "Asakusa",
+            "arrival": "09:30",
+            "leave": "11:00",
+            "transportFromPrevious": {
+              "mode": "metro",
+              "durationMinutes": 22,
+              "cost": 210
+            }
+          },
+          {
+            "name": "Ueno Museum",
+            "arrival": "11:35",
+            "leave": "13:00",
+            "transportFromPrevious": {
+              "mode": "metro",
+              "durationMinutes": 18,
+              "cost": 180
+            }
+          }
+        ],
+        "fallbackPlanIfRain": "Swap afternoon outdoor spots with indoor museum cluster"
+      }
+    ]
+  },
+  "alternatives": [
+    { "strategy": "cheapest", "totalCost": 9800 },
+    { "strategy": "fastest", "totalTravelMinutes": 165 }
+  ]
+}
